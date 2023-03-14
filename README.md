@@ -68,3 +68,217 @@ By the end of this project, students will be able to:
 **Online Marketplace Application:** This project involves the development of a web-based application that facilitates online transactions between buyers and sellers. The application should incorporate the MVC (Model-View-Controller) design pattern to separate the concerns of the application into different components. The application should also implement the Observer design pattern to notify users of updates to their transactions.  Additionally, the system should incorporate Continuous Integration and Deployment (CI/CD) and automated testing.
 
 **IoT Sensor Monitoring System:** This project involves the development of a system for monitoring and analyzing data from IoT sensors using MQTT. The system should incorporate the Publish-Subscribe design pattern to enable sensors to publish data and clients to subscribe to relevant data streams. The system should also implement the Chain of Responsibility design pattern to manage and filter data streams, and the Adapter design pattern to enable different types of sensors to communicate with the system. Additionally, the system should incorporate Continuous Integration and Deployment (CI/CD) and automated testing to ensure that data is collected accurately and without errors. The system should provide real-time visualizations of sensor data and alert users when thresholds are exceeded.
+
+Milestone # 2 - Project Description and Requirements
+
+Group Name: Pirates of the C
+
+Group Members: 
+Kyle Keim (46335485)	
+Einar Schiele (64296734)
+Mehul Raisingh (46168746)	
+Ryan Tschritter (47341862)
+
+A summary of “What” your project is, who the users are, and “What” your project will do (functional, non-functional requirements, etc) including use cases (properly dressed with the appropriate level of abstraction.   Consider the tools (proto-personal, journey lines)
+
+Project Description:
+
+	What is the project:
+
+For this project we will be developing an internet of things (IoT) sensor monitoring system for a large-scale commercial building; in this case a hospital. This system will be designed to sense and monitor the changes in temperature of the environment over a period of time. Based on certain parameters entered by the user, the system will respond differently at different temperature levels and different levels of temperature fluctuation. 
+
+	Who are the users:
+
+	Primary users:
+
+Primary users of the system include anyone who is directly dealing or monitoring the system.  These users include:
+
+Technicians entering the system’s detection parameters.
+Employees that are continuously monitoring the system
+Emergency service professionals that may need to monitor or interact with the system.
+
+Secondary users:
+
+Secondary users are users who would indirectly use the system. These users include:
+
+Emergency personal
+Maintenance staff
+Individuals in an area which is monitored by the sensor
+
+Project requirements:
+
+	Functional requirements:
+Users will be able to monitor temperature sensors in real time through a web browser client.
+System will alert the users when the temperature exceeds the threshold
+System will automatically reconnect to sensors if connection is lost
+System will store past temperature data.
+Users will be able to add or remove sensors.
+
+
+Domain requirements:
+The system should read and return values in degrees celsius.
+
+	Non-functional requirements:
+
+	Product requirements:
+System will be developed using python.
+The readout of the sensors should be minimalistic, understandable and easy to read. (ex: Not returning machine code.)
+The sensors should publish their readings at a set interval and not lag or lead this timed interval. In this case, every 500ms should suffice. 
+The system should restart automatically if it goes down for any reason (ex: power outage)
+		Efficiency:
+		Dependability:
+
+Organizational requirements:
+System will implement automated testing
+System will implement the publish-subscribe design pattern
+System will incorporate continuous integration and deployment
+System will implement the chain of responsibility design pattern
+System will implement the adapter design pattern
+System will use MQTT
+The system should be able to easily integrate a new sensor if required.
+
+External Requirements:
+The system must be secure, therefore a password will be required to access the data and administrative commands.
+
+
+
+
+Use cases:
+
+Use Case 1: <Add IoT Sensor>
+    Primary actor: System Admin
+    Description: Adding a IoT sensor to the monitoring system
+    Pre-condition: Admin must be logged in, identical sensor must not already exist
+    Post-condition: Given options to edit the new sensor
+
+    Main scenario:
+Admin types name of new sensor
+Admin types information about new sensor
+Admin creates new sensor
+
+    Extensions:
+If incorrect information is entered admin is prompted to fix information
+After adding sensor admin edits display configuration in monitoring system
+
+Use Case 2: <Edit IoT Sensor>
+    Primary actor: System Admin
+    Description: Edit IoT sensor information and display configuration
+    Pre-condition: Admin must be logged in, Sensor has been created successfully
+    Post-condition: Changes have been applied to sensor configuration
+
+    Main scenario:
+Admin select to edit an individual sensor
+Admin changes values
+Admin applies configuration changes
+
+    Extensions:
+If incorrect information is entered admin is prompted to fix information before exiting
+
+
+Use Case 3: <Remove IoT Sensor>
+    Primary actor: System Admin
+    Description: Removes a sensor from the monitoring system
+    Pre-condition: Admin must be logged in, The system contains a valid sensor
+    Post-condition: The sensor is removed from the monitoring system
+
+    Main scenario:
+1.The admin selects to remove a sensor
+2.The admin selects what sensor to remove
+3.The admin verifies that they want to remove the sensor
+4.The sensor is remove from the monitoring system
+
+    Extensions:
+Verification prompt is presented to prevent accidental removal
+Use Case 4: <Make User Account>
+    Primary actor: System Admin
+    Description: The system admin will add a new account to the database.
+    Pre-condition: Admin must be logged into the system
+    Post-condition: A new user account will be added to the system.
+
+    Main scenario:
+1.The admin navigates to the correct webpage to add a user account.
+2.The admin uses the ‘add new user’ button.
+3.The admin enters the new user’s information into the correct fields.
+4.The admin hits the ‘finalize new user button’ when done.
+5.The admin will log out when finished.
+
+    Extensions:
+3.1. The admin tries to edit a field with an incorrect domain value
+	3.1.1. Display an “incorrect domain” error message.
+4.1 The admin tries to finalize the user information without filling out all the fields.
+	4.1.1 Display “All fields are not completed” error message and prevent submission.
+Use Case 5: <Edit User Account>
+    Primary actor: System Admin
+    Description:The system admin will edit an account that has already been created from the database.
+    Pre-condition:Admin must be logged into the system, user account database must not be empty.
+    Post-condition: An account already in the system will be edited.
+
+    Main scenario:
+1.The admin navigates to the correct webpage to remove a user account.
+2.The admin finds the correct user account and hits the edit user’ button.
+3.The admin edits the user’s account information.
+4.The admin will log out when finished.
+
+    Extensions:
+        2.1. The admin tries to edit a field with an incorrect domain value
+	2.1.1. Display an “incorrect domain” error message.
+Use Case 6: <Remove User Account>
+    Primary actor: System Admin
+    Description: The system admin will remove an account that has already been created from the database.
+    Pre-condition: Admin must be logged into the system, user account database must not be empty.
+    Post-condition: An account already existing in the system will be deleted.
+
+    Main scenario:
+1.The admin navigates to the correct webpage to remove a user account.
+2.The admin finds the correct user account and hits the ‘remove user’ button.
+3.The admin will log out when finished.
+
+    Extensions:
+        2.1. Admin tries to remove an account that no longer exists.
+	2.1.1 Display an “User no longer exists” error.
+
+Use Case 7: <Set Sensor Alert>
+    Primary actor: System Admin
+    Description: The system admin will set the sensor alert temperature to a given temperature or change the value already in the system.
+    Pre-condition: Admin must be logged into the system.
+    Post-condition: A new global sensor alert temperature has been set for the sensor monitoring system.
+
+    Main scenario:
+1.The admin navigates to the correct webpage to set the sensor alert.
+2.The admin will click the ‘set sensor alert temp.’ button.
+3.The admin will input a new sensor alert temperature.
+4.The admin will log out when finished.
+
+    Extensions:
+       2.1 An out of bounds ‘sensor alert temp.’ value is input.
+	2.1.1 Display an “incorrect temp value” error message  
+
+Use Case 8: <Viewing Sensor Readouts>
+    Primary actor: System User
+    Description: The user will go onto the website and be able to see the temperature readouts of every sensor in the hospital. They can also view real-time data, sensor history, and even download sensor data.
+    Pre-condition: user must be logged into the system
+    Post-condition: The user will have advanced knowledge of the temperature readouts of all the hospital rooms.
+
+    Main scenario:
+1.The user finds the IoT sensor website.
+2.The user finds what sensors they are looking for.
+3.The user accesses data of the specified temperature sensors and can view real-time data, sensor history, or download sensor data.
+4.The user logs out of the system when finished.
+
+        3.1 The data is corrupted or not recorded.
+	3.1.1 Display an “Information incorrect” error message. 
+		
+(For the sake of time, I’m not adding a use case for logging in/out, and condensing the data viewing section of the use case diagram)
+
+
+
+
+Assumption/constraints:
+There is a secure network for communication between devices.
+We will assume that during the system’s operation, there are no significant interruptions in power.
+Assume there are no faulty sensors, and their returned temperature values are correct.
+Assume that we have infinite memory storage and wont run out.
+Assume all heating/cooling devices are operating normally and at a consistent rate.
+Assume the user is on the hospital grounds when accessing the website.
+
+
