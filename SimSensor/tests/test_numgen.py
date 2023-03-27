@@ -1,27 +1,30 @@
-import unittest # Import the unittest framework
-from simsensor import * # Import the numgen python file from lib folder and all functions within
+import unittest
+from SimSensor.simsensor import * # From in the SimSensor folder and the simsensor python file import all the functions within
 from random import Random
 
 # This can probably be improved by figuring out and implimenting the python random seed
 
 # Black box testing that the numgen class outputs correctly
-class testsensor(unittest.TestCase):
-    def testHigh(self): # Test that it never outputs above 40
+class test_numgen(unittest.TestCase):
+    def test_High(self): # Test that it never outputs above 40
         for x in range(100): # Test it a 100 times (for randomness)
             self.assertLess(numgen(), 41, 'Error: A numer output over 40')
         
-    def testLow(self): # Test that it never outputs below -30
+    def test_Low(self): # Test that it never outputs below -30
         for x in range(100): # Test it a 100 times (for randomness)
             self.assertGreater(numgen(), -30, 'Error: A numer output below -30')
         
-    def testRandom(self): # Test that the output is not *always* the same
-        newOutput = numgen()
-        maxRepeats = 3
+    def test_Random(self): # Test that the output is not *always* the same
+        oldOutput = numgen()
+        maxRepeats = 3 # Numer of time the numgen function can be called and the output be allowed to repeat
         for x in range(100): # Test it a 100 times (for randomness)
-            currentOutput = numgen()
-            if currentOutput == newOutput:
+            if maxRepeats <= 0:
+                self.assertTrue(False, 'Error: Random output did not change') # In previous loop
+            currentOutput = numgen() # Get a new output to compare to
+            if currentOutput == oldOutput:
                 maxRepeats -= 1 # Decrease by one if random number hasen't changed
             else:
                 maxRepeats = 3 # Reset maxRepeats if a new number is generated
-            
-            
+                oldOutput = currentOutput # Make the old output the value of the current output and repeat
+        self.assertTrue(True) # If it makes it though the loop its probably fine
+                
