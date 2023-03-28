@@ -12,7 +12,8 @@ Ryan Tschritter (47341862) - Started writing tests for a simulated iot sensor th
 Mehul Raisingh (46168746) - Currently working on the temperature control system. I have populated the kanban project board with the major tasks that need to be completed in order to fully implement the control system, this includes: writing different testing scenarios for the overall system, writing test for each individual function. I have started to implement the testing/coding components, however I ran into a couple problems and need to redesing a portion of the control system.
 
 
-Einar Schiele (64296734) -
+Einar Schiele (64296734) - Working on creating the webpage for displaying temperature sensor data, currently making the basic structure of the webpage. have also been doing reaserch on how to create webservers on through docker and their proper implementation.
+
 
 
 
@@ -25,7 +26,7 @@ Ryan Tschritter - "We are probably on track for where we need to be. We probably
 
 Mehul Raisingh - "There was unexpected problem that I ran into while designing the test for the system. This problem, was mainly to do with how the system would react to additional noise picked up by the sensor. As a result im in the process of redesign the control system to include a filter, i'm currrently figuring out what kinda of filter would be most effective and how to implemented suuitable tests for this (im thinking of creating a sine wave generator that would convulated with a noise function generator that would mimic real world noise). Although there were a few setbacks, Im sure I will be able to get this back on track."
 
-
+Einar Schiele - "Work on the webpage was a little slow, the wepbage doesnt need a lot more work to have the functional requirements outlined. It will need more updates as the project goes on to ensure that it can be properly integrated, this will involve properly formatting data to match the data being created through the simulation, and displaying the data sent in from the backend."
 
 3. Comments on the process;  how is the process you selected as a team working?  Does anything need to change?
 
