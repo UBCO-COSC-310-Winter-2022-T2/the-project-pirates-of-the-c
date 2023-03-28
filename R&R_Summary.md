@@ -9,7 +9,7 @@ Added and semi-populated a basic Kanban project board to the repo and started wo
 Ryan Tschritter (47341862) - 
 
 
-Mehul Raisingh (46168746) -
+Mehul Raisingh (46168746) - Currently working on the temperature control system. I have populated the kanban project board with the major tasks that need to be completed in order to fully implement the control system, this includes: writing different testing scenarios for the overall system, writing test for each individual function. I have started to implement the testing/coding components, however I ran into a couple problems and need to redesing a portion of the control system.
 
 
 Einar Schiele (64296734) -
@@ -20,6 +20,8 @@ Einar Schiele (64296734) -
 
 Kyle Keim - "I think that we are on track for creating appropriate tests to follow a TTD model for this project. Creating the Continuous Integration required for the testing of all pulled code, at least for python, was interesting to try and figure out but I managed to find an appropriate workflow through Gthub Actions. Fortunately 
 the Projects tab made it really easy to create a Kanban style board so that we can easily see who is doing what task and what needs to be done."
+
+Mehul Raisingh - "There was unexpected problem that I ran into while designing the test for the system. This problem, was mainly to do with how the system would react to additional noise picked up by the sensor. As a result im in the process of redesign the control system to include a filter, i'm currrently figuring out what kinda of filter would be most effective and how to implemented suuitable tests for this (im thinking of creating a sine wave generator that would convulated with a noise function generator that would mimic real world noise). Although there were a few setbacks, Im sure I will be able to get this back on track."
 
 
 
