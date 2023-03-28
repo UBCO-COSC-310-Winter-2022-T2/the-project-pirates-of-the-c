@@ -6,7 +6,7 @@ fufills a set of pytests that must pass before a PR can be merged into the main 
 Added and semi-populated a basic Kanban project board to the repo and started working on the database testing/coding of the project that is a work in progress.
 
 
-Ryan Tschritter (47341862) - 
+Ryan Tschritter (47341862) - Started writing tests for a simulated iot sensor that will be deployed to a docker container. Reasearching more about how the MQTT protocol works and how the python paho-mqtt package works. Getting a better understanding of the mqtt interfacing to discuss with the team. Will update the kanban board with new tasks once I have a understanding of the paho package.
 
 
 Mehul Raisingh (46168746) -
