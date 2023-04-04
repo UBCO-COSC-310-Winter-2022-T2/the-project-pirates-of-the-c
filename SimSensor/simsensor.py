@@ -8,7 +8,7 @@ class simsensor:
         def brokerdisconnect():
                 return
         
-        def clientinstance():
+        def createclient():
                 return
 
         def numgen():
