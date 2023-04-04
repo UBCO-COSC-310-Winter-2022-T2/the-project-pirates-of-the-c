@@ -6,7 +6,7 @@ Kyle Keim (46335485) -
 Ryan Tschritter (47341862) - 
 
 
-Mehul Raisingh (46168746) -  
+Mehul Raisingh (46168746) -  Currently still working on creating a bandpass filter. I have started to looking into including a PID systems that would help improve the control system. Currently still deciding the which API to use and how to implment it again.
 
 
 Einar Schiele (64296734) -  
@@ -20,7 +20,7 @@ Kyle Keim -
 
 Ryan Tschritter - 
 
-Mehul Raisingh - 
+Mehul Raisingh - added intial function components for the bandpass filter and its asocciated tests.
 
 Einar Schiele - 
 
