@@ -1,47 +1,38 @@
 1. Highlight what tasks were done during this cycle (by owner).   They will come from your Kanban board or tracking tool. Recall that there is an expectation of on-average, equal contribution to the project.
 
-Kyle Keim (46335485) - Implemented a CI model by introducing a python-app.yml file to the project workflow folder that can check that a given merged pull requests 
-fufills a set of pytests that must pass before a PR can be merged into the main branch.
+Kyle Keim (46335485) - Continuing to write tests and implement the database for the project. Working on containerizing using docker and implementing possibly using a 
+flask framework for moving data between the python backend and the database.
 
-Added and semi-populated a basic Kanban project board to the repo and started working on the database testing/coding of the project that is a work in progress.
+Ryan Tschritter (47341862) - Finished writing the test for the simulated sensor. I've been researching docker and getting a better understanding of the mid level architecture that we'll have to implement. I've looked into docker compose as a possibility for the final solution as well as networking between containers.
 
-
-Ryan Tschritter (47341862) - Started writing tests for a simulated iot sensor that will be deployed to a docker container. Reasearching more about how the MQTT protocol works and how the python paho-mqtt package works. Getting a better understanding of the mqtt interfacing to python to then discuss with the team. Will update the kanban board with new tasks once I have a understanding of the paho package and whats required.
-
-
-Mehul Raisingh (46168746) - Currently working on the temperature control system. I have populated the kanban project board with the major tasks that need to be completed in order to fully implement the control system, this includes: writing different testing scenarios for the overall system, writing test for each individual function. I have started to implement the testing/coding components, however I ran into a couple problems and need to redesing a portion of the control system.
+Mehul Raisingh (46168746) -  Currently still working on creating a bandpass filter. I have started to looking into including a PID systems that would help improve the control system. Currently still deciding the which API to use and how to implment it again.
 
 
-Einar Schiele (64296734) - Working on creating the webpage for displaying temperature sensor data, currently making the basic structure of the webpage. have also been doing reaserch on how to create webservers on through docker and their proper implementation.
+Einar Schiele (64296734) -  Continued to work on the website and started working on making the webserver. Have spent a lot of time reaserching and familiarizing myself with docker. Still have to keep researching to set it up properly. 
 
 
 
 
 2. Summary of the progress (relative to the requirements for the project (where are you based on where you thought you were going to be;  what's done and what's left) (this will be supported by your commit logs; remember that each feature needs to be on its own branch, tested, reviewed and merged)
 
-Kyle Keim - "I think that we are on track for creating appropriate tests to follow a TTD model for this project. Creating the Continuous Integration required for the testing of all pulled code, at least for python, was interesting to try and figure out but I managed to find an appropriate workflow through Gthub Actions. Fortunately 
-the Projects tab made it really easy to create a Kanban style board so that we can easily see who is doing what task and what needs to be done."
+Kyle Keim - "I would have liked to be a bit furthur along on my current task, but life gets in the way sometimes lol. A lot of broken code and python deployment errors attempting to get a mySQL framework up and running but it's coming along slowly. I have more time this week to hopefully keep up with the project on the daily. We will get together to discuss project details by the end of the week."
 
-Ryan Tschritter - "We are probably on track for where we need to be. We probably need to have another team meeting to discuss our progress and update eachother on how things have been going to make sure were all aiming for the right goal."
+Ryan Tschritter - "I think we are still on track for our project requirements are we should have some hard deliverables starting to appear in the next few days. I think a group meeting is also in order to get everybody caught up and show what we've been working on."
 
-Mehul Raisingh - "There was unexpected problem that I ran into while designing the test for the system. This problem, was mainly to do with how the system would react to additional noise picked up by the sensor. As a result im in the process of redesign the control system to include a filter, i'm currrently figuring out what kinda of filter would be most effective and how to implemented suuitable tests for this (im thinking of creating a sine wave generator that would convulated with a noise function generator that would mimic real world noise). Although there were a few setbacks, Im sure I will be able to get this back on track."
+Mehul Raisingh - added intial function components for the bandpass filter and its asocciated tests.
 
-Einar Schiele - "Work on the webpage was a little slow, the wepbage doesnt need a lot more work to have the functional requirements outlined. It will need more updates as the project goes on to ensure that it can be properly integrated, this will involve properly formatting data to match the data being created through the simulation, and displaying the data sent in from the backend."
+Einar Schiele - The process is going along, it a lot of the parts for the webserve will need to be fully completed when other systems have been implemented. FOr now Ive been focusing on getting as much done so when everything is integrated it goes smoothly.
 
 3. Comments on the process;  how is the process you selected as a team working?  Does anything need to change?
 
-We selected a Kanban style work process that allows use to easily see whose working on what, what needs to be done, and what is already completed. It will help
-give us a good sense of what needs to be done and where we are at. I think that we could use more issues/tasks on the Kanban board that more specifically target given tasks.
+We selected a Kanban style work process that allows use to easily see whose working on what, what needs to be done, and what is already completed. It will help give us a good sense of what needs to be done and where we are at. I think that the Kanban process has given us a better idea of how we are managing the scope of the project and how much time we have left to complete it.
 
 
 4. Branches/Tasks completed and tested/merged 
 
-PythonWorkflow Branch tested and merged. Including a failed test to check that indeed failing a given pytest will prevent the PR from merging into the main branch.
-
-
 5. If you have a release candidate (something that is working, even partially, make note of that (this could be on your master branch, or you might choose to branch from master onto a release branch.  
 
-No current release candidate available as of Milestone #4 (27/March/2023).
+No current release candidate available as of Milestone #5 (03/April/2023).
 
 6. Update your testing report so you know what is working.  What's working; what's passing; what's not? 
 
