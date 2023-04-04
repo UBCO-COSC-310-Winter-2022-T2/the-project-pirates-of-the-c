@@ -8,7 +8,7 @@ Ryan Tschritter (47341862) - Finished writing the test for the simulated sensor.
 Mehul Raisingh (46168746) -  Currently still working on creating a bandpass filter. I have started to looking into including a PID systems that would help improve the control system. Currently still deciding the which API to use and how to implment it again.
 
 
-Einar Schiele (64296734) -  
+Einar Schiele (64296734) -  Continued to work on the website and started working on making the webserver. Have spent a lot of time reaserching and familiarizing myself with docker. Still have to keep researching to set it up properly. 
 
 
 
@@ -21,7 +21,7 @@ Ryan Tschritter - "I think we are still on track for our project requirements ar
 
 Mehul Raisingh - added intial function components for the bandpass filter and its asocciated tests.
 
-Einar Schiele - 
+Einar Schiele - The process is going along, it a lot of the parts for the webserve will need to be fully completed when other systems have been implemented. FOr now Ive been focusing on getting as much done so when everything is integrated it goes smoothly.
 
 3. Comments on the process;  how is the process you selected as a team working?  Does anything need to change?
 
