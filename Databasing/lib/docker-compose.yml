@@ -1,0 +1,26 @@
+# go to localhost:8080 on browser
+# Use root as user
+# Use examplepass as password
+
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    container_name: database
+    volumes:
+      - db-data:/mySQL/data
+    environment:
+      MYSQL_ROOT_PASSWORD: examplepass
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+  phpMyAdmin:
+    image: phpmyadmin
+    environment: 
+      PMA_ARBITRARY: 1
+    ports:
+      - "8080:80"
+
+volumes:
+  db-data:
