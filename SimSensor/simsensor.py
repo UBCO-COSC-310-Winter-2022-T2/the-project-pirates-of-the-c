@@ -4,14 +4,19 @@ import random, time, math
 def main():
         return
 
-def brokerconnect():
-        return
+def brokerconnect(client):
+        host = 'localhost'
+        port = 1883
+        keepalive = 60
+        client.connect(host, port, keepalive)
+        return 
 
-def brokerdisconnect():
+def brokerdisconnect(client):
         return
 
 def createclient():
-        return
+        client = mqtt.Client(client_id=None, clean_session=True, userdata=None, transport='tcp')
+        return client
 
 def numgen():
         current_time = time.localtime()
