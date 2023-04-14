@@ -32,3 +32,4 @@ volumes:
 #example mysql query
 #mysql -u root -p examplepass -D mydatabase -e "SELECT * FROM firstTable"
 #echo "SELECT * FROM firstTable" | mysql --user=root --password=examplepass mydatabase
+#
