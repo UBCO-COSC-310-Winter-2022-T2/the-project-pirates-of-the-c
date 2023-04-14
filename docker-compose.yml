@@ -2,6 +2,8 @@
 # go to localhost:8080 on browser
 # Use root as user
 # Use examplepass as password
+#use docker container ls to find ip when database container is running, then docker inspect "database name"
+
 
 version: '3.1'
 
@@ -25,3 +27,8 @@ services:
 
 volumes:
   db-data:
+
+#running bash: docker exec -it database bash
+#example mysql query
+#mysql -u root -p examplepass -D mydatabase -e "SELECT * FROM firstTable"
+#echo "SELECT * FROM firstTable" | mysql --user=root --password=examplepass mydatabase
