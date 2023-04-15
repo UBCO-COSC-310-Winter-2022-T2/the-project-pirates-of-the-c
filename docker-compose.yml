@@ -1,25 +1,20 @@
 version: '3'
 
 services:
-  mqtt-broker: # The mqtt broker container
+  mqtt-broker: # The mqtt broker container name (will also be used for the ip address)
     image: eclipse-mosquitto
     ports:
-      - "1883:1883" # Maps port 1883 inside container to 1883 on local host
+      - "1883:1883" # Maps port 1883 inside container to 1883 on outside of container
   
   simsensor1: # The first simulated sensor container
     build: .
     depends_on:
       - mqtt-broker
-    command: python3 simsensor.py
-
-  simsensor2: # The second simulated sensor container
-    build: .
-    depends_on:
-      - mqtt-broker
-    command: python3 simsensor.py
-
-  simsensor3: # The third simulated sensor container
-    build: .
-    depends_on:
-      - mqtt-broker
-    command: python3 simsensor.py
+    environment:
+      - dockername=simsensor1
+      - address=mqtt-broker
+      - port=1883
+    working_dir: /SimSensor
+    volumes:
+      - ./SimSensor
+    command: python simsensor.py

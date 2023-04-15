@@ -10,11 +10,10 @@ class test_brokerconnect(unittest.TestCase):
        self.assertIsInstance(client, mqtt.Client)
        
     def test_connection(self): # Test the connection of a mqtt client to a broker
+        # Needs a mqtt broker to test connection otherwise test fails
         client = createclient()  # Needs the create client function to work first
-        time.sleep(10)
         brokerconnect(client)
         self.assertTrue(client.is_connected()) # Connect sucessful
-        time.sleep(10)
         brokerdisconnect(client)
         self.assertFalse(client.is_connected()) # Disconnect sucessful
         

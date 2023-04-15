@@ -1,21 +1,58 @@
 import paho.mqtt.client as mqtt
-import random, time, math
+import random, time, math, sys, os
+
+dockername = 'sensor1'
+address = 'localhost'
+port = 1883
+keepalive = 60
+stream = dockername + 'data'
 
 def main():
+        client = createclient()
+        brokerconnect(client)
+        try:
+                while True:
+                        number = f'{numgen():.3f}' # Temp
+                        client.publish(stream, number) # Publish to Broker
+                        print("Press CTRL+C to exit...")
+                        time.sleep(5) # Wait 5 sec before sending another
+        except KeyboardInterrupt:
+                print('Disconnecting from broker')
+        client.disconnect()
         return
 
+def on_log(client, userdata, level, buf): # Called every time an event happens
+        print(f'MQTT {dockername}: {buf}') # Prints the message of the event
+
+def on_connect(client, userdata, flags, rc): # When the client connects this is called
+        if rc == 0: 
+                print('Connected OK') # Remote connection equals zero, connection was sucessful
+        else:
+                print('Bad connection returned code= ',rc) # Not sucessful
+        
+def on_disconnect(client, userdata, flags, rc): # Called when client disconnects from broker
+        print(rc)
+        print('on_connect')
+        
+        
 def brokerconnect(client):
-        host = 'localhost'
-        port = 1883
-        keepalive = 60
-        client.connect(host, port, keepalive)
+        if client.connect(address, port, keepalive) != 0: # Returns 0 if client connects
+                print("Can't connect to MQTT Broker")
+                sys.exit(-1)
+        time.sleep(5) # MUST SLEEP FOR 5 SEC TO LET BROKER PROCESS REQUEST
         return 
 
 def brokerdisconnect(client):
+        client.disconnect()
+        client.loop_stop()
         return
 
 def createclient():
-        client = mqtt.Client(client_id=None, clean_session=True, userdata=None, transport='tcp')
+        client = mqtt.Client(dockername)
+        client.on_log = on_log
+        client.on_connect = on_connect
+        client.on_disconnect = on_disconnect
+        client.loop_start()
         return client
 
 def numgen():
