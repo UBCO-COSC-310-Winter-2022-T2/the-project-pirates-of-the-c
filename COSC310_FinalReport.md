@@ -1,6 +1,6 @@
 **<span style="text-decoration:underline;">COSC 310- Project Final Report</span>**
 
-**Group Name:**Pirates of the C
+**Group Name:** Pirates of the C
 
 **Group Members:**
 
