@@ -82,7 +82,7 @@ Optimally, our project would be deployed on a single system using various docker
 
 
 
-1. _How did your project management work for the team?  What was the hardest thing and what would you do the same/differently the next time you plan to complete a project like this? _
+1. _How did your project management work for the team?  What was the hardest thing and what would you do the same/differently the next time you plan to complete a project like this?_
 
 We all contributed to weekly meetings and even development of the project as well as managing our own time accordingly. We mostly worked independently of one another during the development process and followed a Kanban framework to develop the project.
 
@@ -104,7 +104,7 @@ We decided to cut out various parts of the project we had planned on at the star
 
 
 
-4. _What process did you use (ie Scrum, Kanban..), how was it managed, and what was observed? _
+4. _What process did you use (ie Scrum, Kanban..), how was it managed, and what was observed?_
 
 We followed a Kanban framework as far as managing the implementation of project issues and development. We used a project board on github to create the Kanban workboard and used it accordingly to create work cards. We observed taking various cards from a to-do column to an in-progress column to a completed column depending on where the implementation of the task was at.
 
@@ -116,7 +116,7 @@ For the most part, we all used python as a programming language and utilized vsc
 
 
 
-6. _If you were to estimate the efforts required for this project again, what would you consider?  (Really I am asking the team to reflect on the difference between what you thought it would take to complete the project vs what it actually took to deliver it). _  
+6. _If you were to estimate the efforts required for this project again, what would you consider?  (Really I am asking the team to reflect on the difference between what you thought it would take to complete the project vs what it actually took to deliver it)._  
 
 We probably would have needed better resources when it came to docker networking, and a considerable amount more time to implement a finished product. This project probably should have been started earlier in the semester and a better sense of total project time required from the get go. We are still probably weeks out from completion and it certainly took more time than we thought we would need as we started to run into walls of programming problems. It really doesn’t take very much code to get a project like this running, but having the experience of knowing _what _to write and overcoming programming problems has to be over 90% of the time spent during our implementation of the product.
 
