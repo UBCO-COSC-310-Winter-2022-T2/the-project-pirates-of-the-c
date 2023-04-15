@@ -1,20 +1,57 @@
 version: '3'
 
 services:
-  mqtt-broker: # The mqtt broker container name (will also be used for the ip address)
+  eclipse-mosquitto: # The name (will also be used for the ip address)
     image: eclipse-mosquitto
+    user: mosquitto
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf # Overwrite the default mosquitto configuration
     ports:
       - "1883:1883" # Maps port 1883 inside container to 1883 on outside of container
+    networks:
+      iotnetwork:
+        aliases:
+          - eclipse-mosquitto # Will appear on the iotnetwork as this name
   
   simsensor1: # The first simulated sensor container
-    build: .
+    build: ./SimSensor # Builds based on the docker file in simsensor
     depends_on:
-      - mqtt-broker
-    environment:
-      - dockername=simsensor1
-      - address=mqtt-broker
-      - port=1883
-    working_dir: /SimSensor
-    volumes:
-      - ./SimSensor
-    command: python simsensor.py
+      - eclipse-mosquitto
+    environment: # Overwrites the two enviroment variables
+      - containername=simsensor1
+      - broker_address=eclipse-mosquitto
+      - delay=1
+    networks:
+      iotnetwork:
+        aliases:
+          - simsensor1 # Will appear on the iotnetwork as this name
+
+  simsensor2: # The second simulated sensor container
+    build: ./SimSensor # Builds based on the docker file in simsensor
+    depends_on:
+      - eclipse-mosquitto
+    environment: # Overwrites the two enviroment variables
+      - containername=simsensor2
+      - broker_address=eclipse-mosquitto
+      - delay=2
+    networks:
+      iotnetwork:
+        aliases:
+          - simsensor2 # Will appear on the iotnetwork as this name
+
+  simsensor3: # The third simulated sensor container
+    build: ./SimSensor # Builds based on the docker file in simsensor
+    depends_on:
+      - eclipse-mosquitto
+    environment: # Overwrites the two enviroment variables
+      - containername=simsensor3
+      - broker_address=eclipse-mosquitto
+      - delay=3
+    networks:
+      iotnetwork:
+        aliases:
+          - simsensor3 # Will appear on the iotnetwork as this name
+
+networks:
+  iotnetwork: # Creates a custom virtual network called iotnetwork
+    driver: bridge

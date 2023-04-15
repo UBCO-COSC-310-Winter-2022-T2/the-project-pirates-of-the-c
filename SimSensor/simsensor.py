@@ -1,20 +1,24 @@
 import paho.mqtt.client as mqtt
 import random, time, math, sys, os
 
-dockername = 'sensor1'
-address = 'localhost'
-port = 1883
+#containername = 'sensor1' # For non containerized testing
+#broker_address = 'localhost' # For non containerized testing
+containername = os.environ.get('containername', 'localhost')
+broker_address = os.environ.get('broker_address', 'localhost')
+delay = os.environ.get('delay', 'localhost')
+broker_port = 1883 # default port
 keepalive = 60
-stream = dockername + 'data'
+stream = containername + 'data' # Topic stream
 
 def main():
+        time.sleep(int(delay))
         client = createclient()
         brokerconnect(client)
         try:
                 while True:
-                        number = f'{numgen():.3f}' # Temp
-                        client.publish(stream, number) # Publish to Broker
-                        print("Press CTRL+C to exit...")
+                        num = f'{numgen():.3f}' # Temp
+                        client.publish(stream, num) # Publish to Broker
+                        print(f'Publishing --> {num}')
                         time.sleep(5) # Wait 5 sec before sending another
         except KeyboardInterrupt:
                 print('Disconnecting from broker')
@@ -22,7 +26,7 @@ def main():
         return
 
 def on_log(client, userdata, level, buf): # Called every time an event happens
-        print(f'MQTT {dockername}: {buf}') # Prints the message of the event
+        print(f'MQTT {containername}: {buf}') # Prints the message of the event
 
 def on_connect(client, userdata, flags, rc): # When the client connects this is called
         if rc == 0: 
@@ -36,9 +40,9 @@ def on_disconnect(client, userdata, flags, rc): # Called when client disconnects
         
         
 def brokerconnect(client):
-        if client.connect(address, port, keepalive) != 0: # Returns 0 if client connects
+        if client.connect(broker_address, broker_port, keepalive) != 0: # Returns 0 if client connects
                 print("Can't connect to MQTT Broker")
-                sys.exit(-1)
+                #sys.exit(-1)
         time.sleep(5) # MUST SLEEP FOR 5 SEC TO LET BROKER PROCESS REQUEST
         return 
 
@@ -48,7 +52,7 @@ def brokerdisconnect(client):
         return
 
 def createclient():
-        client = mqtt.Client(dockername)
+        client = mqtt.Client(containername)
         client.on_log = on_log
         client.on_connect = on_connect
         client.on_disconnect = on_disconnect
